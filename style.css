@@ -1,0 +1,144 @@
+:root{
+
+  --bg:#0f0e0d;           /* page background */
+  --card:#171513;         /* panels/cards */
+  --ink:#f7efe2;          /* main text */
+  --muted:#cbbba3;        /* secondary text */
+  --line:#2a241f;         /* borders */
+
+  --brand:#e8c28a;        /* sand accent */
+  --brand-2:#1d1916;      /* navbar strip */
+  --pill:rgba(232,194,138,.15);  /* active chip */
+  --link:#f0d49e;         /* links */
+  --link-hover:#ffe5b5;   /* link hover */
+
+  --radius:12px;
+  --shadow:0 12px 28px rgba(0,0,0,.45);
+  --container:1200px;     /* a bit wider */
+}
+
+
+*{box-sizing:border-box}
+html,body{margin:0}
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.55;
+}
+.container{width:var(--container);max-width:95%;margin:0 auto}
+
+
+.header{
+  background:linear-gradient(180deg,#1a1613,#0d0c0b);
+  color:var(--ink);
+  text-align:center;
+  padding:28px 0 22px;
+  border-radius:0 0 14px 14px;
+  box-shadow:var(--shadow), inset 0 -3px 0 rgba(232,194,138,.25);
+}
+.header .logo{height:56px;display:block;margin:0 auto 8px}
+.header h1{margin:0;font-size:30px}
+.tagline{margin:6px 0 0;opacity:.85;font-size:14px;color:var(--muted)}
+
+
+.navbar{
+  background:var(--brand-2);
+  border-bottom:1px solid #241f1b;
+  padding:10px 0;
+  text-align:center;
+}
+.navbar a{
+  display:inline-block;
+  margin:0 6px;
+  padding:8px 14px;
+  text-decoration:none;
+  color:var(--link);
+  font-weight:bold;
+  border-radius:999px;
+  transition:.15s ease;
+}
+.navbar a:hover{background:rgba(232,194,138,.1);color:var(--link-hover)}
+.navbar a.active{background:var(--pill);border:1px solid rgba(232,194,138,.35)}
+
+
+.content{padding:18px 0}
+.sidebar,.aside{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+}
+.sidebar{float:left;width:20%;padding:16px;margin-right:2%}
+.aside{float:right;width:78%;padding:20px}
+.content::after{content:"";display:table;clear:both}
+
+.sidebar h3,.aside h3{margin:0 0 10px;font-size:18px}
+.sidebar ul{margin:8px 0 0 18px}
+.sidebar a{color:var(--link);text-decoration:none}
+.sidebar a:hover{color:var(--link-hover);text-decoration:underline}
+.side-card{
+  margin-top:14px;padding:12px;border:1px dashed #3a322a;border-radius:10px;
+  background:#12100e;color:var(--muted);font-size:14px
+}
+.list{list-style:disc;margin:8px 0 0 18px}
+.muted{color:var(--muted)}
+
+.btn-pill{
+  display:inline-block;padding:8px 12px;border-radius:999px;
+  background:var(--brand);color:#1a1613;text-decoration:none;font-weight:700
+}
+.btn-pill:hover{filter:brightness(1.06)}
+
+
+.gallery{margin-top:14px}
+.gallery::after{content:"";display:table;clear:both}
+
+.gallery-item{
+  float:left; width:32%;
+  margin:0 2% 16px 0;                 
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:12px;
+  box-shadow:var(--shadow);
+  text-decoration:none; color:inherit;
+}
+.gallery-item:nth-child(3n){margin-right:0}
+
+.shot{
+  height:240px;                       
+  border-bottom:1px solid var(--line);
+  border-radius:12px 12px 0 0;
+  overflow:hidden; background:#0f0e0d;
+}
+.shot img{width:100%;height:100%;object-fit:cover;display:block}
+
+.shot.contain img{object-fit:contain;background:#000}
+
+
+.cap{padding:10px 12px}
+.cap .title{display:block;font-weight:700}
+.cap .author{display:block;font-size:14px;color:var(--muted);margin-top:2px}
+
+
+.footer{
+  margin-top:28px;background:#161311;
+  color:var(--ink);text-align:center;padding:14px 0;
+  border-radius:14px 14px 0 0;box-shadow:var(--shadow)
+}
+.footer a{color:var(--link);text-decoration:underline}
+.footer p{margin:0;font-size:14px}
+
+
+@media (max-width:1000px){
+  .gallery-item{width:49%;margin-right:2%}
+  .gallery-item:nth-child(3n){margin-right:2%}
+  .gallery-item:nth-child(2n){margin-right:0}
+  .shot{height:220px}
+}
+@media (max-width:700px){
+  .sidebar,.aside{float:none;width:100%;margin:0 0 12px}
+  .navbar a{margin:4px}
+  .gallery-item{width:100%;margin-right:0}
+  .shot{height:220px}
+}
